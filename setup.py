@@ -6,14 +6,14 @@ LONG_DESCRIPTION = """
 
 """
 
-setup(name='django-datatrans',
+setup(name='django-datatrans3',
       version=datatrans.__version__,
       description='Translate Django models without changing anything to existing applications and their '
                   'underlying database.',
       long_description=LONG_DESCRIPTION,
-      author='Jef Geskens, VikingCo nv',
-      author_email='jef.geskens@mobilevikings.com',
-      url='http://github.com/citylive/django-datatrans/',
+      author='Karolis Ryselis, Esperonus',
+      author_email='karolis@esperonus.com',
+      url='https://github.com/ryselis/django-datatrans3',
       license='LICENSE',
       packages=find_packages(),
       include_package_data=True,

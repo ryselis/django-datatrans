@@ -12,14 +12,23 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': PROJECT_DIR + '/test_settings.db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres'
+    }
+}
+
 #DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = PROJECT_DIR + '/test_settings.db'    # Or path to database file if using sqlite3.
-#DATABASE_NAME = 'datatrans'    # Or path to database file if using sqlite3.
-DATABASE_USER = 'postgres'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'postgres'         # Not used with sqlite3.
-DATABASE_HOST = 'localhost'             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = '5432'             # Set to empty string for default. Not used with sqlite3.
+# DATABASE_ENGINE = 'sqlite3'
+# DATABASE_NAME = PROJECT_DIR + '/test_settings.db'    # Or path to database file if using sqlite3.
+# #DATABASE_NAME = 'datatrans'    # Or path to database file if using sqlite3.
+# DATABASE_USER = 'postgres'             # Not used with sqlite3.
+# DATABASE_PASSWORD = 'postgres'         # Not used with sqlite3.
+# DATABASE_HOST = 'localhost'             # Set to empty string for localhost. Not used with sqlite3.
+# DATABASE_PORT = '5432'             # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -60,8 +69,8 @@ SECRET_KEY = '^!e2_=825c67y=x_w&&ks@sr-k)+k@4ksfxj=9e8*uusp(8-u3'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.load_template_source',
 )
 
@@ -79,7 +88,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'templates')
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -89,7 +98,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'datatrans',
-    'test_project.testapp'
+    'testapp'
 )
 
 try:

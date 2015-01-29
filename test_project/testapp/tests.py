@@ -9,8 +9,8 @@ from django.utils import translation
 from datatrans.models import KeyValue
 from datatrans.utils import get_default_language
 
-from test_project.testapp.models import Option
-from test_project.testapp.utils import test_concurrently
+from testapp.models import Option
+from testapp.utils import test_concurrently
 
 
 if hasattr(settings, 'DATABASES'):

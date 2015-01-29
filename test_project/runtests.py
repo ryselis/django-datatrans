@@ -1,6 +1,8 @@
 #This file mainly exists to allow python setup.py test to work.
 
 import os, sys
+from django.test.runner import DiscoverRunner
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'test_project.settings'
 
 test_dir = os.path.dirname(__file__)
@@ -10,7 +12,7 @@ from django.test.utils import get_runner
 from django.conf import settings
 
 def runtests():
-    test_runner = get_runner(settings)
+    test_runner = get_runner(settings, test_runner_class=DiscoverRunner)
     failures = test_runner().run_tests([])
     sys.exit(failures)
 
