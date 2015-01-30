@@ -1,2 +1,2 @@
-recursive-include datatrans/locale *
-recursive-include datatrans/templates *
+recursive-include datatrans3/locale *
+recursive-include datatrans3/templates *

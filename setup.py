@@ -16,6 +16,7 @@ setup(name='django-datatrans3',
       url='https://github.com/ryselis/django-datatrans3',
       license='LICENSE',
       packages=find_packages(),
+
       include_package_data=True,
       zip_safe=False,
       classifiers=[
