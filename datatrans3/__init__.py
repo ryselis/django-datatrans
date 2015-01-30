@@ -1,4 +1,4 @@
-VERSION = (0, 0, 1)
+VERSION = (0, 0, 2)
 # 1.5 is currently on pypi
 
 
