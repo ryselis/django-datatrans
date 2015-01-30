@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+from functools import reduce
 import operator
 import django
 
@@ -9,7 +10,7 @@ from django.utils import translation
 from django.utils.datastructures import SortedDict
 from django.contrib.contenttypes.models import ContentType
 
-from datatrans.models import KeyValue, make_digest, ModelWordCount, FieldWordCount
+from datatrans3.models import KeyValue, make_digest, ModelWordCount, FieldWordCount
 
 
 """
@@ -18,7 +19,7 @@ fields as a dict.
 Example:
 
 >>> from blog.models import Entry
->>> from datatrans.utils import *
+>>> from datatrans3.utils import *
 >>> class EntryTranslation(object):
 ...     fields = ('title', 'body',)
 ...

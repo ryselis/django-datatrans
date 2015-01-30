@@ -1,13 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from setuptools import (setup, find_packages)
-import datatrans
+import datatrans3
 
 LONG_DESCRIPTION = """
 
 """
 
 setup(name='django-datatrans3',
-      version=datatrans.__version__,
+      version=datatrans3.__version__,
       description='Translate Django models without changing anything to existing applications and their '
                   'underlying database.',
       long_description=LONG_DESCRIPTION,

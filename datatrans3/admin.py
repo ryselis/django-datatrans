@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from datatrans.models import KeyValue
+from datatrans3.models import KeyValue
 
 
 class KeyValueAdmin(admin.ModelAdmin):

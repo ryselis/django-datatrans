@@ -1,5 +1,5 @@
 from .compat import patterns, url
-from datatrans import views
+from datatrans3 import views
 
 urlpatterns = patterns('',
     url(r'^$', views.model_list, name='datatrans_model_list'),

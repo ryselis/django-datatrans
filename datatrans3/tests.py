@@ -5,7 +5,7 @@ from django.test import TestCase
 from django.utils import translation
 from django.contrib.contenttypes.models import ContentType
 
-from datatrans.models import KeyValue, make_digest
+from datatrans3.models import KeyValue, make_digest
 
 
 if len(sys.argv) > 1 and sys.argv[1] == 'test':

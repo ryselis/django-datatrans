@@ -1,3 +1,4 @@
+from django.contrib.auth import get_permission_codename
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
@@ -6,9 +7,9 @@ from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.contenttypes.models import ContentType
 
-from datatrans import utils
-from datatrans.models import KeyValue
-from datatrans.utils import count_model_words
+from datatrans3 import utils
+from datatrans3.models import KeyValue
+from datatrans3.utils import count_model_words
 
 def can_translate(user):
     if not user.is_authenticated():
@@ -16,11 +17,10 @@ def can_translate(user):
     elif user.is_superuser:
         return True
     else:
-        group_name = getattr(settings, 'DATATRANS_GROUP_NAME', None)
-        if group_name:
-            from django.contrib.auth.models import Group
-            translators = Group.objects.get(name=group_name)
-            return translators in user.groups.all()
+        permission_name = getattr(settings, 'DATATRANS3_PERMISSION', None)
+        if permission_name:
+            opts = KeyValue._meta
+            return user.has_perm("%s.%s" % (opts.app_label, get_permission_codename(permission_name, opts)))
         else:
             return user.is_staff
 
@@ -113,7 +113,7 @@ def commit_translations(request):
 
 def get_context_object(model, fields, language, default_lang, object):
     object_item = {}
-    object_item['name'] = unicode(object)
+    object_item['name'] = str(object)
     object_item['id'] = object.id
     object_item['fields'] = object_fields = []
     for field in fields.values():
@@ -122,7 +122,7 @@ def get_context_object(model, fields, language, default_lang, object):
         translation = KeyValue.objects.get_keyvalue(key, language, object, field.name)
         object_fields.append({
             'name': field.name,
-            'verbose_name': unicode(field.verbose_name),
+            'verbose_name': str(field.verbose_name),
             'original': original,
             'translation': translation
         })

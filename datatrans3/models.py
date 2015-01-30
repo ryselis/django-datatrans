@@ -27,14 +27,13 @@ CACHE_DURATION = getattr(settings, 'DATATRANS_CACHE_DURATION', 60 * 60)
 
 
 class KeyValueManager(models.Manager):
-    def get_query_set(self):
+    def get_queryset(self):
         return KeyValueQuerySet(self.model)
 
     def get_keyvalue(self, key, language, obj, field):
         key = key or ''
         digest = make_digest(key)
         content_type = ContentType.objects.get_for_model(obj.__class__)
-        object_id = obj.id
         keyvalue, created = self.get_or_create(digest=digest,
                                                language=language,
                                                content_type_id=content_type.id,
@@ -90,8 +89,8 @@ class KeyValueManager(models.Manager):
 class KeyValueQuerySet(QuerySet):
     def iterator(self):
         superiter = super(KeyValueQuerySet, self).iterator()
-        while True:
-            obj = superiter.next()
+        # while True:
+        for obj in superiter:
             # Use cache.add instead of cache.set to prevent race conditions
             for key in obj.cache_keys:
                 cache.add(key, obj, CACHE_DURATION)
@@ -115,9 +114,9 @@ class KeyValueQuerySet(QuerySet):
 
         # Punt on anything more complicated than get by pk/id only...
         if len(kwargs) == 1:
-            k = kwargs.keys()[0]
+            k = list(kwargs)[0]
             if k in ('pk', 'pk__exact', 'id', 'id__exact'):
-                obj = cache.get('datatrans_%s' % kwargs.values()[0])
+                obj = cache.get('datatrans_%s' % list(kwargs.values())[0])
                 if obj is not None:
                     return obj
         elif set(kv_id_fields) <= set(kwargs.keys()):
@@ -133,7 +132,7 @@ class KeyValueQuerySet(QuerySet):
 
 class KeyValue(models.Model):
     """
-    The datatrans magic is stored in this model. It stores the localized fields of models.
+    The datatrans3 magic is stored in this model. It stores the localized fields of models.
     """
     content_type = models.ForeignKey(ContentType, null=True)
     object_id = models.PositiveIntegerField(null=True, default=None)
