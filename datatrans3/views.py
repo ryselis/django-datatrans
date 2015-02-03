@@ -158,14 +158,15 @@ def editor(request, model, language, objects):
                 if not tr.edited:
                     first_unedited_translation = tr
                     break
-
+    main_page_url = reverse('datatrans_model_list')
     context = {'model': model_name,
                'objects': object_list,
                'original_language': default_lang,
                'other_language': language,
                'progress': _get_model_stats(
                    model, lambda x: x.filter(language=language)),
-               'first_unedited': first_unedited_translation}
+               'first_unedited': first_unedited_translation,
+               'translation_main_page_url': main_page_url}
 
     return render_to_response(
         'datatrans/model_detail.html', context,

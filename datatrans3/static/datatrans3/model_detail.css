@@ -14,3 +14,7 @@ tr.fieldname, tr.fieldname td {
 .module table {
     width: 100%;
 }
+
+.object-tools {
+    margin-top: 0;
+}

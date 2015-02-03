@@ -18,6 +18,11 @@
 {% endblock %}
 
 {% block content %}
+    <ul class="object-tools">
+    <li>
+        <a id="back_to_list" class="changelink" title="{% trans 'Back to translation main page' %}" href='{{ translation_main_page_url }}'></a>
+    </li>
+    </ul>
     {% ifnotequal objects|length 1 %}
         <h1>{% trans "Translations for" %} {{ model }}</h1>
     {% endifnotequal %}
