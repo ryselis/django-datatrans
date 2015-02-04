@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 16:30+0200\n"
+"POT-Creation-Date: 2015-02-04 09:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,53 +21,57 @@ msgstr ""
 
 #: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:4
 #: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:8
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:22
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:27
 #: django-datatrans3/datatrans3/templates/datatrans/object_list.html:3
 #: django-datatrans3/datatrans3/templates/datatrans/object_list.html:4
 #: django-datatrans3/datatrans3/templates/datatrans/object_list.html:18
 msgid "Translations for"
 msgstr "Vertimai"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:30
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:23
+msgid "Back to list"
+msgstr "Atgal į sąrašą"
+
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:35
 #, python-format
 msgid ""
 "Jump to %(field_verbose_name)s\n"
 "                field"
 msgstr "Peršokti į lauką %(field_verbose_name)s"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:36
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:41
 msgid "done"
 msgstr "išversta"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:38
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:43
 msgid "to do"
 msgstr "neišversta"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:40
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:45
 msgid "to do (fuzzy)"
 msgstr "neišversta (vertimas negalioja)"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:73
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:78
 msgid "Link to this translation"
 msgstr "Nuoroda į šį vertimą"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:99
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:104
 msgid "tick this checkbox if the translation is deliberately empty"
 msgstr "pažymėkite šį laukelį, jei vertimas iš tikrųjų yra tuščias tekstas"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:99
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:104
 msgid "empty"
 msgstr "tuščias"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:103
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:108
 msgid "keep this original or fuzzy"
 msgstr "netaikyti šio vertimo"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:103
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:108
 msgid "ignore"
 msgstr "ignoruoti"
 
-#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:113
+#: django-datatrans3/datatrans3/templates/datatrans/model_detail.html:118
 msgid "Save"
 msgstr "Išsaugoti"
 
@@ -109,7 +113,8 @@ msgid ""
 "Please review them to see if you can reuse something,\n"
 "            and when done click the 'Remove all obsoletes' button to clean "
 "the KeyValue table."
-msgstr "Prašome juos peržiūrėti ir patikrinti, ar negalite jų panaudoti iš naujo,\n"
+msgstr ""
+"Prašome juos peržiūrėti ir patikrinti, ar negalite jų panaudoti iš naujo,\n"
 "            ir baigę paspauskite 'Ištrinti visus pasenusius vertimus'."
 
 #: django-datatrans3/datatrans3/templates/datatrans/obsolete_list.html:17
@@ -128,3 +133,7 @@ msgstr "Kalba"
 #: django-datatrans3/datatrans3/templates/datatrans/obsolete_list.html:40
 msgid "There are no obsolete messages! Yay!"
 msgstr "Nėra pasenusių tesktų! Valio!"
+
+#~| msgid "Link to this translation"
+#~ msgid "Back to translation main page"
+#~ msgstr "Nuoroda į šį vertimą"

@@ -20,7 +20,7 @@
 {% block content %}
     <ul class="object-tools">
     <li>
-        <a id="back_to_list" class="changelink" title="{% trans 'Back to translation main page' %}" href='{{ translation_main_page_url }}'></a>
+        <a id="back_to_list" class="changelink" title="{% trans 'Back to list' %}" href='{{ translation_main_page_url }}'></a>
     </li>
     </ul>
     {% ifnotequal objects|length 1 %}
@@ -43,7 +43,7 @@
     <div style="float: left; height: 12px; margin-right: 16px;">{% trans "to do" %}</div>
     <div style="width: 12px; height: 12px; border: 1px solid #CCC; background: #FED; float: left; margin-right: 4px;"></div>
     <div style="float: left; height: 12px; margin-right: 4px;">{% trans "to do (fuzzy)" %}</div>
-    <div style="clear: both;"></div>
+    <div style="clear: both; margin-bottom: 1%;"></div>
     </p>
 
 
