@@ -65,7 +65,7 @@ def model_list(request):
     registry = utils.get_registry()
 
     default_lang = utils.get_default_language()
-    languages = [l for l in settings.LANGUAGES if l[0] != default_lang]
+    languages = [l for l in settings.DATATRANS3_LANGUAGES if l[0] != default_lang]
 
     models = [{'slug': _get_model_slug(model),
                'model_name': u'%s' % model._meta.verbose_name,

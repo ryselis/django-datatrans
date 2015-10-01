@@ -98,13 +98,13 @@ def get_default_language():
     language code.
     """
     lang = getattr(settings, 'SOURCE_LANGUAGE_CODE', settings.LANGUAGE_CODE)
-    default = [l[0] for l in settings.LANGUAGES if l[0] == lang]
+    default = [l[0] for l in settings.DATATRANS3_LANGUAGES if l[0] == lang]
     if len(default) == 0:
         # when not found, take first part ('en' instead of 'en-us')
         lang = lang.split('-')[0]
-        default = [l[0] for l in settings.LANGUAGES if l[0] == lang]
+        default = [l[0] for l in settings.DATATRANS3_LANGUAGES if l[0] == lang]
     if len(default) == 0:
-        raise ImproperlyConfigured("The [SOURCE_]LANGUAGE_CODE '%s' is not found in your LANGUAGES setting." % lang)
+        raise ImproperlyConfigured("The [SOURCE_]LANGUAGE_CODE '%s' is not found in your DATATRANS3_LANGUAGES setting." % lang)
     return default[0]
 
 
@@ -113,10 +113,10 @@ def get_current_language():
     Get the current language
     """
     lang = translation.get_language()
-    current = [l[0] for l in settings.LANGUAGES if l[0] == lang]
+    current = [l[0] for l in settings.DATATRANS3_LANGUAGES if l[0] == lang]
     if len(current) == 0:
         lang = lang.split('-')[0]
-        current = [l[0] for l in settings.LANGUAGES if l[0] == lang]
+        current = [l[0] for l in settings.DATATRANS3_LANGUAGES if l[0] == lang]
     if len(current) == 0:
         # Fallback to default language code
         return get_default_language()
@@ -364,7 +364,7 @@ def make_messages(build_digest_list=False):
         objects = model.objects.all()
         for object in objects:
             for field in fields:
-                for lang_code, lang_human in settings.LANGUAGES:
+                for lang_code, lang_human in settings.DATATRANS3_LANGUAGES:
                     value = object.__dict__[field.name]
                     if build_digest_list:
                         digest_list.append(make_digest(value))

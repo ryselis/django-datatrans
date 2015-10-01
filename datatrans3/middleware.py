@@ -27,7 +27,7 @@ class MinimalLocaleMiddleware(object):
 
 def get_language_from_request(request):
     from django.conf import settings
-    supported = dict(settings.LANGUAGES)
+    supported = dict(settings.DATATRANS3_LANGUAGES)
 
     if hasattr(request, 'session'):
         lang_code = request.session.get('django_language', None)

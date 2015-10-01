@@ -138,7 +138,7 @@ class KeyValue(models.Model):
     object_id = models.PositiveIntegerField(null=True, default=None)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     field = models.CharField(max_length=255)
-    language = models.CharField(max_length=5, db_index=True, choices=settings.LANGUAGES)
+    language = models.CharField(max_length=5, db_index=True, choices=settings.DATATRANS3_LANGUAGES)
 
     value = models.TextField(blank=True)
     edited = models.BooleanField(blank=True, default=False)
