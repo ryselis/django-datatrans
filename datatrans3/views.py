@@ -43,10 +43,10 @@ def _get_model_entry(slug):
 def _get_model_stats(model, filter=lambda x: x):
     default_lang = utils.get_default_language()
     registry = utils.get_registry()
-    keyvalues = filter(KeyValue.objects.for_model(model, registry[model].values()).exclude(language=default_lang))
+    keyvalues = filter(KeyValue.objects.for_model(model, registry[model].values()).exclude(language=default_lang).exclude(value=""))
     total = keyvalues.count()
     done = keyvalues.filter(edited=True, fuzzy=False).count()
-    return (done * 100 / total if total > 0 else 0, done, total)
+    return (round(done * 100 / total if total > 0 else 0, 2), done, total)
 
 
 @user_passes_test(can_translate, settings.LOGIN_URL)
