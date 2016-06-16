@@ -145,7 +145,7 @@ class KeyValue(models.Model):
     fuzzy = models.BooleanField(blank=True, default=False)
 
     digest = models.CharField(max_length=40, db_index=True)
-    updated = models.DateTimeField(auto_now=True, default=datetime.datetime.now)
+    updated = models.DateTimeField(auto_now=True)
 
     objects = KeyValueManager()
 
@@ -172,7 +172,7 @@ class ModelWordCount(WordCount):
     """
     Caches the total number of localized words for a model
     """
-    content_type = models.ForeignKey(ContentType, db_index=True, unique=True)
+    content_type = models.OneToOneField(ContentType, db_index=True)
 
 
 class FieldWordCount(WordCount):
