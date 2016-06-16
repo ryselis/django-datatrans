@@ -1,13 +1,12 @@
-import datetime
+from hashlib import sha1
+
 from django.conf import settings
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.db import models
 from django.db.models import signals
 from django.db.models.query import QuerySet
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
-
-from hashlib import sha1
 
 
 def make_digest(key):
@@ -136,7 +135,7 @@ class KeyValue(models.Model):
     """
     content_type = models.ForeignKey(ContentType, null=True)
     object_id = models.PositiveIntegerField(null=True, default=None)
-    content_object = generic.GenericForeignKey('content_type', 'object_id')
+    content_object = GenericForeignKey('content_type', 'object_id')
     field = models.CharField(max_length=255)
     language = models.CharField(max_length=5, db_index=True, choices=settings.DATATRANS3_LANGUAGES)
 

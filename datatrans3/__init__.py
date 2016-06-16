@@ -16,10 +16,10 @@ def autodiscover():
     Same principle as for importing the admin modules with autodiscover() from django.contrib.admin
     """
     from django.conf import settings
-    from django.utils.importlib import import_module
 
     for app in settings.INSTALLED_APPS:
         try:
+            from importlib import import_module
             import_module('%s.datatranslation' % app)
         except ImportError:
             pass
