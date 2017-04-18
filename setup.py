@@ -30,7 +30,7 @@ setup(name='django-datatrans3',
           'Topic :: Software Development :: Internationalization',
       ],
       install_requires=[
-          'Django>=1.8.13',
+          'Django>=1.9',
       ]
 )
 
