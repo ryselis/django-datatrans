@@ -1,4 +1,4 @@
-from .compat import patterns, url
+from .compat import url
 from datatrans3 import views
 
 urlpatterns = [
