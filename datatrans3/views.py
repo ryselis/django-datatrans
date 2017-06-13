@@ -174,8 +174,7 @@ def editor(request, model, language, objects):
                'translation_main_page_url': main_page_url}
 
     return render_to_response(
-        'datatrans/model_detail.html', context,
-        context_instance=RequestContext(request))
+        'datatrans/model_detail.html', context)
 
 
 def selector(request, model, language, objects):
@@ -188,8 +187,7 @@ def selector(request, model, language, objects):
         'objects': objects
     }
     return render_to_response(
-        'datatrans/object_list.html', context,
-        context_instance=RequestContext(request))
+        'datatrans/object_list.html', context)
 
 
 @user_passes_test(can_translate, settings.LOGIN_URL)
@@ -251,4 +249,4 @@ def obsolete_list(request):
         return HttpResponseRedirect(reverse('datatrans_obsolete_list'))
 
     context = {'obsoletes': obsoletes}
-    return render_to_response('datatrans/obsolete_list.html', context, context_instance=RequestContext(request))
+    return render_to_response('datatrans/obsolete_list.html', context)
