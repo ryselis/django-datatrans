@@ -29,8 +29,5 @@ setup(name='django-datatrans3',
           'Framework :: Django',
           'Topic :: Software Development :: Internationalization',
       ],
-      install_requires=[
-          'Django',
-      ]
 )
 
