@@ -95,8 +95,7 @@ def model_list(request):
     context = {'models': models, 'words': total_words}
 
     return render_to_response('datatrans/model_list.html',
-                              context,
-                              context_instance=RequestContext(request))
+                              context)
 
 
 def commit_translations(request):
