@@ -1,5 +1,5 @@
 from django.contrib.auth import get_permission_codename
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
 from django.template.context import RequestContext
@@ -92,7 +92,7 @@ def model_list(request):
                } for model in registry]
 
     total_words = sum(m['words'] for m in models)
-    context = {'models': models, 'words': total_words}
+    context = {'models': models, 'words': total_words, 'request': request}
 
     return render_to_response('datatrans/model_list.html',
                               context)
@@ -171,9 +171,10 @@ def editor(request, model, language, objects):
                'progress': _get_model_stats(
                    model, lambda x: x.filter(language=language)),
                'first_unedited': first_unedited_translation,
-               'translation_main_page_url': main_page_url}
+               'translation_main_page_url': main_page_url,
+               'request': request}
 
-    return render_to_response(
+    return render(request,
         'datatrans/model_detail.html', context)
 
 
