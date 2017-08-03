@@ -92,7 +92,7 @@ def model_list(request):
                } for model in registry]
 
     total_words = sum(m['words'] for m in models)
-    context = {'models': models, 'words': total_words, 'request': request}
+    context = {'models': models, 'words': total_words, 'request': request, 'user': request.user}
 
     return render_to_response('datatrans/model_list.html',
                               context)
