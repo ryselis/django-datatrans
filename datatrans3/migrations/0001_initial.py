@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('total_words', models.IntegerField(default=0)),
                 ('valid', models.BooleanField(default=False)),
                 ('field', models.CharField(db_index=True, max_length=64)),
-                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('fuzzy', models.BooleanField(default=False)),
                 ('digest', models.CharField(db_index=True, max_length=40)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('content_type', models.ForeignKey(null=True, to='contenttypes.ContentType')),
+                ('content_type', models.ForeignKey(null=True, to='contenttypes.ContentType', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('total_words', models.IntegerField(default=0)),
                 ('valid', models.BooleanField(default=False)),
-                ('content_type', models.OneToOneField(to='contenttypes.ContentType')),
+                ('content_type', models.OneToOneField(to='contenttypes.ContentType', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
