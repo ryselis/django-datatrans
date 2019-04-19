@@ -1,8 +1,7 @@
 from django.contrib.auth import get_permission_codename
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect, Http404
-from django.core.urlresolvers import reverse
-from django.template.context import RequestContext
+from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.contenttypes.models import ContentType
