@@ -11,7 +11,7 @@ from datatrans3.models import KeyValue
 from datatrans3.utils import count_model_words
 
 def can_translate(user):
-    if not user.is_authenticated():
+    if not user.is_authenticated:
         return False
     elif user.is_superuser:
         return True
